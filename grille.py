@@ -25,7 +25,7 @@ class Grille:
 
         # Placement horizontal
         if direction==1:
-            if y+taille > 10:
+            if y+taille>10:
                 print("Position (" + str(x+1) + "," + str(y+taille+1) + ") : sort de la grille")
                 return False
             for i in range(taille):
@@ -94,6 +94,20 @@ class Grille:
             grille.place_alea(i)
         return grille
 
+    def connexe(self, bateau, position):
+        x,y = position #On suppose que les coordonnees sont entre 1 et 10 et non 0 et 9.
+        x-=1
+        y-=1
+        cases_bat= set()
+        for i in range(10):
+            if (self.grille[x][i]==bateau):
+                cases_bat.add((x,i))
+                self.grille[x][i]=0
+            elif (self.grille[i][y]==bateau):
+                cases_bat.add((i,y))
+                self.grille[i][y]=0
+        return self
+
     # Partie 2 : Combinatoire du jeu 
 
 def nb_placements_possibles_bateau(id):
@@ -126,12 +140,10 @@ def nb_placements_possibles_liste_sans_chev(liste_bateaux):
     
 def grilles_egales(self):
     cpt=0
-    while(not(self.eq(genere_grille))):
+    while(not(self.eq(Grille.genere_grille("test")))):
         cpt+=1
     return cpt
 
 def nb_total_grilles(liste_bateaux):
     cpt=0
     return cpt
-
-    # Partie 3 : Modelisation probabiliste du jeu
