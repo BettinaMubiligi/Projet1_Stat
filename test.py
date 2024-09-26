@@ -1,4 +1,5 @@
 from grille import *
+from bataille import *
 import numpy as np
 
 grille=Grille("grille")
@@ -11,7 +12,7 @@ grille=Grille("grille")
 grille.place(5,(2,3),2)
 print(grille.grille)
 
-print("----------")
+""" print("----------")
 
 print(grille.place_alea(2))
 
@@ -48,7 +49,10 @@ print("------------------")
 print(nb_placements_possibles_bateau(5))
 
 print("----------------")
-print (nb_placements_possibles_liste_sans_chev([1,4,5]))
+print ("Nb placements possibles : " + str(nb_placements_possibles_liste_sans_chev([1,4,5])))
+
+print("----------------")
+print(grilles_egales(grille2))
 
 #print(place(grille,4,(4,5),1))
 #print("----------------")
@@ -56,3 +60,9 @@ print (nb_placements_possibles_liste_sans_chev([1,4,5]))
 #print("----------------")
 
 #print(place(grille,3,(3,8),2))
+ """
+
+bat_test = Bataille("Bataille test")
+bat_test.grille.affiche()
+print(bat_test.joue_heuristique())
+bat_test.grille.affiche()
