@@ -13,30 +13,36 @@ class Grille:
     def __init__(self,nom):
         self.grille = np.zeros((10,10), dtype=int)
         self.name = nom
+        self.liste=[]
 
     def __getvalue__(self,i,j):
-         return self.grille[i][j]
+        #faut faire -1 car on raisonne de 1 à 10 mais accéder à des cases c'est de 0 à 9
+         return self.grille[i-1][j-1]
 
     # Partie 1 : Modelisation et fonctions simples
 
     def peut_placer(self, bateau, position, direction):
-        taille = taillebat[bateau]
+        taille = taillebat[bateau] #avec son id qui est bateau, on a la taille
         x,y = position # On suppose que l'utilisateur va rentrer des valeurs entre 1 et 10 et non 0 et 9
 
         # Placement horizontal
         if direction==1:
+            #cas débordement
             if y+taille>10:
                 print("Position (" + str(x+1) + "," + str(y+taille+1) + ") : sort de la grille")
                 return False
+            #vérifie si les cases sont libres -> 0
             for i in range(taille):
                 if self.grille[x-1][y+i-1]!=0:
                     print("Position (" + str(x+1) + "," + str(y+taille+1) + ") occupée")
                     return False
         # Placement vertical
         elif direction==2:
+            #cas débordement
             if x+taille>10:
                 print("Position (" + str(x+taille+1) + "," + str(y+1) + ") : sort de la grille")
                 return False
+            #vérifier que c'est libre 
             for i in range(taille):
                 if self.grille[x+i-1][y-1]!=0:
                     print("Position (" + str(x+taille+1) + "," + str(y+1) + ") occupée")
@@ -50,9 +56,11 @@ class Grille:
             if direction==1:
                 for i in range(taillebat[bateau]):
                     self.grille[ligne-1][colonne+i-1]=bateau
+                    self.liste.append((ligne,colonne+i))
             if direction==2:
                 for i in range(taillebat[bateau]):
                     self.grille[ligne+i-1][colonne-1]=bateau
+                    self.liste.append((ligne+i,colonne))
         return self.grille
 
 
@@ -93,8 +101,17 @@ class Grille:
         for i in range (1,6):
             grille.place_alea(i)
         return grille
+        
+# Genere une grille de 2 bateaux
+    def genere_grille_2(name): 
+        grille= Grille(name)
+        for i in range (1,3):
+            grille.place_alea(i)
+        return grille
 
     def connexe(self, bateau, position):
+        """fonction pour connaître toutes les cases d'un bateau 
+        en particulier en connaissant seulement une seule de ses cases"""
         x,y = position #On suppose que les coordonnees sont entre 1 et 10 et non 0 et 9.
         x-=1
         y-=1
@@ -110,7 +127,9 @@ class Grille:
 
     # Partie 2 : Combinatoire du jeu 
 
+
 def nb_placements_possibles_bateau(id):
+    #nb possibilités pour 1 bateau donné dans une grille vide
     grille_vide=Grille("Grille vide")
     taille = taillebat[id]
     return ((np.size(grille_vide.grille,0)-taille+1)*np.size(grille_vide.grille, 1)*2)
@@ -140,8 +159,9 @@ def nb_placements_possibles_liste_sans_chev(liste_bateaux):
     
 def grilles_egales(self):
     cpt=0
-    while(not(self.eq(Grille.genere_grille("test")))):
+    while(not(self.eq(Grille.genere_grille_2("test")))):
         cpt+=1
+    print ("Nombre de grilles generees : ")
     return cpt
 
 def nb_total_grilles(liste_bateaux):
