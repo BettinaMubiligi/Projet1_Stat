@@ -99,23 +99,18 @@ class Bataille :
 
     # Version probabiliste simplifiee
 
-    def joue_proba_simplifiee(self):
-        pos_grille=set()
-
-        for i in range(1,11):
-            for j in range (1,11):
-                pos_grille.add((i,j))
-    
-        return pos_grille
-        
-
-
-
-
-
+    def genere_mat_nb_possibilites(bateau):
+        mat=Grille("x")
+        k=taillebat[bateau] -1
+        for i in range(10):
+            for j in range (10):
+                if ((i<=k and j>=9-k) or (i<=k and j<=k) or (i>=9-k and j>=9-k) or (i>=9-k and j<=k)):
+                    mat.grille[i][j]=2
+                elif ((i<k or i>=10-k) and (j>=k or j<=9-k)):
+                    mat.grille[i][j]=3
+                else :
+                    mat.grille[i][j]=4
+        return mat.grille
 
 
-
-
-
-
+    #def joue_proba_simplifiee(self, liste_bateaux):
