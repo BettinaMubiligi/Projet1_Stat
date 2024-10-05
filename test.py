@@ -1,39 +1,33 @@
 from grille import *
 from bataille import *
 import numpy as np
-
-g1=Grille("grille1")
-g2=Grille("grille2")
-g3=Grille.genere_grille("grille 3")
-
-
+"""
+g1 = Grille("grille1")
+g2 = Grille("grille2")
+g3 = Grille.genere_grille("grille 3")
+"""
 #grille.place(4,(4,5),1)
 #print(grille.grille)
+"""
+g1.place(5, (2, 3), 2)
+g2.place(5, (2, 3), 2)
 
-
-g1.place(5,(2,3),2)
-g2.place(5,(2,3),2)
-
-
-g1.place(4,(1,4),1)
-g2.place(4,(1,4),1)
-
+g1.place(4, (1, 4), 1)
+g2.place(4, (1, 4), 1)
+"""
 #g1.place_alea(2)
-
+"""
 print(g2.grille)
 
 print(g1.eq(g2))
 
 print(g2.liste)
-
+"""
 #print(g3.grille)
-
 
 #print(g1.__getvalue__(2,3))
 
 #g1.affiche()
-
-
 """ print("----------")
 
 print(grille.place_alea(2))
@@ -75,11 +69,10 @@ print ("Nb placements possibles : " + str(nb_placements_possibles_liste_sans_che
 """
 grille2 = Grille.genere_grille_2("grille 2")
 #print(grille2.grille)
-
-"""grille2.affiche()
+grille2.affiche()
 print("----------------")
-print(grilles_egales(grille2))"""
-
+print(grilles_egales(grille2))
+"""
 print(Bataille.genere_mat_nb_possibilites(1))
 print("----------------")
 print(Bataille.genere_mat_nb_possibilites(2))
@@ -89,17 +82,23 @@ print("----------------")
 print(Bataille.genere_mat_nb_possibilites(4))
 print("----------------")
 print(Bataille.genere_mat_nb_possibilites(5))
-
 """
+""" b1 = Bataille("bat")
+liste_bateau = [1, 2, 3, 4, 5]
+print(b1.joue_proba_simplifiee(liste_bateau))"""
 #print(place(grille,4,(4,5),1))
 #print("----------------")
 #print(place(grille,3,(3,8),2))
 #print("----------------")
 
 #print(place(grille,3,(3,8),2))
- """
-
-"""bat_test = Bataille("Bataille test")
+liste_bateau = [1, 2, 3, 4, 5]
+print(str(nb_total_grilles(liste_bateau)))
+"""
+bat_test = Bataille("Bataille test")
 bat_test.grille.affiche()
-print(bat_test.joue_heuristique())
+print(bat_test.joue_aleatoire())
+bat_test.grille.affiche()
+
+print(bat_test.joue_proba_simplifiee(liste_bateau))
 bat_test.grille.affiche()"""
