@@ -21,17 +21,32 @@ En suivant le même raisonnement pour le reste des bateaux, on obtient pour le b
 La fonction qui permet de calculer le nombre de façons de placer un bateau donné sur une grille vide est nb_placements_possibles_bateau(id) avec id le numéro du bateau, nous renvoie les même valeurs que celles trouvées lors du calcul théorique, soit 120 pour le bateau 1, 140 pour le bateau 2, 160 pour les bateaux 3 et 4 et 180 pour le bateau 5.
 
 *Q.3*
+
 En implémentant la fonction qui permet de calculer le nombre de façon de placer une liste de bateaux sur une grille vide, on observe que le nombre de placements possible varie selon les chevauchements : pas de chevauchements implique un nombre de placements inférieur à au cas où ils seraient permis. Ce nombre dépend également de la taille des bateaux de la liste. 
 
 *Q.4*
+
 La probabilité de tirer une grille donnée = 1 / le nombre de grilles total si on considère toutes les grilles comme équiprobables. 
 Remarque : notre fonction  grilles_egales(grille)   qui génère des grilles aléatoirement jusqu’à ce que la grille générée soit égale à la grille passée en paramètre a un temps d'exécution très élevé.
 
 *Q.5*
-D'après la question 4), le nombre de grilles total pour une liste de bateaux = 1/ la probabilité de tirer une grille donnée pour cette liste de bateaux.
-Pour trouver cette probabilité, il faut calculer le nombre de grilles valides générées avec la liste de bateaux / le nombre d'essais total.
-Ici, les grilles 'valides' sont les grilles possibles, sans débordement et chevauchements, soit les grilles pour lesquelles la foncion peut_placer(grille, bateau, position, direction) était à true pour tous les bateaux de la liste.
 
+D'après la question 4), le nombre de grilles total pour une liste de bateaux = 1/ la probabilité de tirer une grille donnée pour cette liste de bateaux, approximativement.
+Pour trouver cette probabilité, il faut calculer le nombre de grilles valides générées avec la liste de bateaux / le nombre d'essais total.
+Donc le nombre de grilles total = nb essais total/nb grilles valides générées.
+Ici, les grilles 'valides' sont les grilles possibles, sans débordements et chevauchements, soit les grilles pour lesquelles la foncion peut_placer(grille, bateau, position, direction) était à true pour tous les bateaux de la liste. 
+
+
+**Partie 3 - Modélisation probabiliste du jeu**
+*Version aléatoire*
+Nos hypothèses sont les suivantes pour le calcul l’espérance du nombre de coups joués avant de couler tous les bateaux si chaque coup est tiré aléatoirement :
+- Il y a un bateau de chaque taille dans la grille
+- La grille est de taille 10*10 soit 100 cases
+- Il n'y a pas de chevauchements possibles entre les cases des bateaux
+- Une case touchée l'est définitivement
+  Il y a au total 5+4+3+3+2 = 17 cases occupées sur 100 qui contienent un bateau.
+  Au premier coup, on aura 100 cases possibles sur 17 cases réellement occcupées par un bateau, puis au second coup, il nous restera 99 cases possibes sur 16 cases réellement occupées par un bateau, puis 98/15 pour le troisième coup, etc.
+  Ce qui nous donne une espérance E =
 
 
 
