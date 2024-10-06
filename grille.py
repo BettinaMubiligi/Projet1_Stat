@@ -161,6 +161,7 @@ def nb_placements_possibles_liste_sans_chev(liste_bateaux):
     return nb_possibilites
 
 
+#Q4, remarque : la fonction tourne trop longtemps
 def grilles_egales(self):
     cpt = 0
     while (not (self.eq(Grille.genere_grille_2("test")))):
@@ -169,12 +170,12 @@ def grilles_egales(self):
     return cpt
 
 
-#Pour éviter que la fonction tourne trop longtemps, utiliser une liste de bateaux contenant 3 bateaux au maximum
+#5: Pas sûres du résultat
+
+
 def nb_total_grilles(liste_bateaux):
-    cpt = 1
-    for i in liste_bateaux:
-        cpt *= (10 - taillebat[i] + 1) * 10 * 2
-    return cpt
+    return nb_placements_possibles_liste_chev(
+        liste_bateaux) / nb_placements_possibles_liste_sans_chev(liste_bateaux)
 
 
 #Pour la Partie 3 : Version probabiliste simplifiée
