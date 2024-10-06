@@ -44,6 +44,7 @@ Nos hypothèses sont les suivantes pour le calcul l’espérance du nombre de co
 - La grille est de taille 10*10 soit 100 cases
 - Il n'y a pas de chevauchements possibles entre les cases des bateaux
 - Une case touchée l'est définitivement
+  
   Il y a au total 5+4+3+3+2 = 17 cases occupées sur 100 qui contienent un bateau.
   Au premier coup, on aura 100 cases possibles sur 17 cases réellement occcupées par un bateau, puis au second coup, il nous restera 99 cases possibes sur 16 cases réellement occupées par un bateau, puis 98/15 pour le troisième coup, etc.
   Ce qui nous donne une espérance E =
