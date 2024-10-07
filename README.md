@@ -56,6 +56,15 @@ Nos hypothèses sont les suivantes pour le calcul l’espérance du nombre de co
 
 *Version probabiliste simplifiée*
 
+**Partie 4 - Senseur Imparfait: à la recherche de l’USS Scorpion**
+
+*Q.1*
+
+*Q.2*
+
+*Q.3*
+
+*Q.4*
 
 
 
