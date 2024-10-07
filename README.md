@@ -27,7 +27,7 @@ En implémentant la fonction qui permet de calculer le nombre de façon de place
 *Q.4*
 
 La probabilité de tirer une grille donnée = 1 / le nombre de grilles total si on considère toutes les grilles comme équiprobables. 
-Remarque : notre fonction  grilles_egales(grille)   qui génère des grilles aléatoirement jusqu’à ce que la grille générée soit égale à la grille passée en paramètre a un temps d'exécution très élevé.
+Remarque : notre fonction  grilles_egales(grille) qui génère des grilles aléatoirement jusqu’à ce que la grille générée soit égale à la grille passée en paramètre a un temps d'exécution très élevé si on prends des grilles contenant plus de 3 bateaux.
 
 *Q.5*
 
