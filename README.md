@@ -63,13 +63,23 @@ Nos hypothèses sont les suivantes pour le calcul l’espérance du nombre de co
 
 **Partie 4 - Senseur Imparfait: à la recherche de l’USS Scorpion**
 
-*Q.1*
+*Q.1* La loi de probabilite pour Y=1 est 1/N car il y a une seule case sur les N du quadrillage qui contient l'objet. La loi de probabilite pour Y=0 est N-1/N (ou 1-(1/N)) car le reste des N cases du quadrillage est vide.
 
-*Q.2*
+Selon l'enonce de la partie 4, voici ce qu'il vient pour la loi de probabilite de Zi|Yi : 
+ - p(Z=0|Y=0) = p(Z=0^Y=0)/p(Y=0) = 1
+ - p(Z=1|Y=0) = p(Z=1^Y=0)/p(Y=0) = 0
+ - p(Z=0|Y=1) = p(Z=0^Y=1)/p(Y=0) = 1-ps
+ - p(Z=1|Y=1) = p(Z=1^Y=1)/p(Y=0) = ps
 
-*Q.3*
 
-*Q.4*
+*Q.2* Dans le cas ou la detection n'a pas fonctionnee (Zk=0) alors que l'objet s'y trouvait (Yk=1), on peut exprimer la probabilite de la maniere suivante :
+ p(Z=0|Y=1) = p(Z=0^Y=1)/p(Y=0) = 1-ps ?
+
+*Q.3* 
+
+πk = 
+
+*Q.4* Pour πk, on met sa valeur a 0 et on augmente la probabilite sur toutes les autres cases car il y a une case en moins parmi les N dans laquelle l'objet aurait pu se trouver. Ce qui donne πi = 1/(N-nb_cases_zero)
 
 
 
