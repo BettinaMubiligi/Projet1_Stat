@@ -38,7 +38,9 @@ Ici, les grilles 'valides' sont les grilles possibles, sans débordements et che
 
 
 **Partie 3 - Modélisation probabiliste du jeu**
+
 *Version aléatoire*
+
 Nos hypothèses sont les suivantes pour le calcul l’espérance du nombre de coups joués avant de couler tous les bateaux si chaque coup est tiré aléatoirement :
 - Il y a un bateau de chaque taille dans la grille
 - La grille est de taille 10*10 soit 100 cases
@@ -50,6 +52,9 @@ Nos hypothèses sont les suivantes pour le calcul l’espérance du nombre de co
   Ce qui nous donne une espérance E =
 
 
+*Version heuristique*
+
+*Version probabiliste simplifiée*
 
 
 
