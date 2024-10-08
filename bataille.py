@@ -48,7 +48,7 @@ class Bataille:
                 direction = random.randint(1, 2)
                 bateau = random.randint(1, 5)
                 position = x, y
-
+        print("Nombre de coups en version aleatoire : ")
         return nb_coups
 
     # Version heuristique
@@ -80,17 +80,18 @@ class Bataille:
             else:
                 exploree.add((x, y))
                 nb_coups += 1
+                id = self.grille.grille[x - 1][y - 1]
                 self.grille.grille[x - 1][y - 1] = 0
                 x -= 1
                 y -= 1
-                cases_bat = set()
+                #cases_bat = set()
                 for i in range(10):
                     if (self.grille.grille[x][i] == bateau):
-                        cases_bat.add((x, i))
+                        #cases_bat.add((x, i))
                         self.grille.grille[x][i] = 0
                         nb_coups += 1
                     elif (self.grille.grille[i][y] == bateau):
-                        cases_bat.add((i, y))
+                        #cases_bat.add((i, y))
                         self.grille.grille[i][y] = 0
                         nb_coups += 1
                 x = random.randint(1, 10)
@@ -98,7 +99,7 @@ class Bataille:
                 direction = random.randint(1, 2)
                 bateau = random.randint(1, 5)
                 position = x, y
-
+        print("Nombre de coups en version heuristique : ")
         return nb_coups
 
     # Version probabiliste simplifiee
@@ -168,5 +169,5 @@ class Bataille:
 
                 if self.grille.eq(grille_vide):
                     break
-
+        print("Nombre de coups en version probabiliste : ")
         return nb_coups
