@@ -32,10 +32,12 @@ Remarque : notre fonction  grilles_egales(grille) qui génère des grilles aléa
 *Q.5*
 
 D'après la question 4), le nombre de grilles total pour une liste de bateaux = 1/ la probabilité de tirer une grille donnée pour cette liste de bateaux, approximativement.
-Pour trouver cette probabilité, il faut calculer le nombre de grilles valides générées avec la liste de bateaux / le nombre d'essais total.
+Pour trouver cette probabilité, il faut calculer le nombre de grilles valides générées avec la liste de bateaux / le nombre d'essais total de génération de grilles.
 Donc le nombre de grilles total = nb essais total/nb grilles valides générées.
 Ici, les grilles 'valides' sont les grilles possibles, sans débordements et chevauchements, soit les grilles pour lesquelles la foncion peut_placer(grille, bateau, position, direction) était à true pour tous les bateaux de la liste. 
-
+Nous avons immplémenté une fonction nb_total_grilles(liste_bateau) qui calcule ce nombre total de grilles, à l'aide de nb_placements_possibles_liste_chev(
+        liste_bateaux) / nb_placements_possibles_liste_sans_chev(liste_bateaux),  qui calculent le nombre de façon de placer une
+liste de bateaux sur une grille vide, avec et sans chevauchelents respectivement, cependant le résultat obtenu ne semble pas cohérent.
 
 **Partie 3 - Modélisation probabiliste du jeu**
 
