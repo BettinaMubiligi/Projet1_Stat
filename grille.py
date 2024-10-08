@@ -72,8 +72,7 @@ class Grille:
             x = random.randint(1, 10)
             y = random.randint(1, 10)
             dir = random.randint(1, 2)
-        print(str(x))
-        print(str(y))
+      
         self.place(bateau, (x, y), dir)
 
         return self.grille
