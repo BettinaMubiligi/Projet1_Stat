@@ -25,7 +25,7 @@ class Senseur :
     """Fonction qui parcourt la grille de 1 a N jusqu'a retrouver l'objet perdu"""
     grille_proba=grille_proba_init(self.N)
     xmax, ymax = np.unravel_index(grille_proba.argmax(), grille_proba.shape) #On recupere la position de la probabilite la plus haute
-    cpt_maj_grille_proba=0
+    cpt_maj_grille_proba=1
     while(self.quadrillage[xmax][ymax]!=1):
       grille_proba_maj(grille_proba, (xmax, ymax), self.N)
       xmax, ymax = np.unravel_index(grille_proba.argmax(), grille_proba.shape)
@@ -40,7 +40,7 @@ class Senseur :
     grille_proba=grille_proba_init(self.N)
     x_centre = math.isqrt(self.N)//2
     y_centre = math.isqrt(self.N)//2
-    cpt_maj_grille_proba=0
+    cpt_maj_grille_proba=1
     deplacements_possibles=[(0,0)]
 
     for d in range (1, math.isqrt(self.N)):
