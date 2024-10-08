@@ -61,7 +61,14 @@ Nos hypothèses sont les suivantes pour le calcul l’espérance du nombre de co
 *Version heuristique*
 
 *Version probabiliste simplifiée*
+ Les étapes de l'algortithme de recherche probabiliste :
+ 1/ Création de la matrice mat_total avec la somme de toutes les probabilités pour chaque bateau et chaque case.
+ 2/ On remplit un ensemble avec les coordonnées à explorer dans l'ordre (coordonnées avec la plus grande probabilité de contenir un bateau), et on modifie systématiquement cet ensemble avec les nouvelles probabilités de contenir un bateau dans les cases à chaque tour (on met à jour mat_total et l'ensembre des coordonnées àa explorer) .
+ 3/ Parcours de la grille similaire à la version heuristique, en commençant par les cases avec la plus grande probabilité de contenir un bateau tout en modifiant les probabilités dans les cases en fonction du résultat du coup :                       
+       - si la case est vide, on enlève 1 à la probabilité de présence de tous les bateaux dans la case (-5), si on touche un bateau, on ne touche pas aux probabilités, mais on parcourt les cases adjacentes pour couler le bateau, et en le coulant, on enlève 1 à la probabilité de présence de tous les autres bateaux dans la case (-4), à chaque case contenant le bateau.
 
+        
+       
 **Partie 4 - Senseur Imparfait: à la recherche de l’USS Scorpion**
 
 *Q.1* La loi de probabilite pour Y=1 est 1/N car il y a une seule case sur les N du quadrillage qui contient l'objet. La loi de probabilite pour Y=0 est N-1/N (ou 1-(1/N)) car le reste des N cases du quadrillage est vide.
