@@ -47,14 +47,15 @@ Nos hypothèses sont les suivantes pour le calcul l’espérance du nombre de co
 - Il n'y a pas de chevauchements possibles entre les cases des bateaux
 - Une case touchée l'est définitivement
 
-  On pose une variable aléatoire X comptant le nombre d'épreuves de Bernoulli indépendantes (le nombre de coups joués ) de probabilité de succès p ∈ ]0,1[, X permet donc de compter le nombre de coups nécessaires pour couler tous les bateaux de la grille, soit le nombre de coups pour toucher chaque case de la grille contenant un bateau.
-  Ceci correspond à une loi géométrique de paramètre p, p étant la probabilité de toucher une case contenant un bateau.
-  X a donc une espérance E = 1/p car elle suit une loi géomtrique de paramètre p.
+  On pose une variable aléatoire X comptant le nombre d'épreuves de Bernoulli dépendantes (le nombre de coups joués ) de probabilité de succès p ∈ ]0,1[ chacunes , X permet donc de compter le nombre de coups nécessaires pour couler tous les bateaux de la grille, soit le nombre de coups pour toucher chaque case de la grille contenant un bateau. X est donc une somme de Xi, avec i le nombre de coups joués.
+  Ces Xi suivent une loi géométrique de paramètre p, p étant la probabilité de toucher une case contenant un bateau,  avec donc une espérance E = 1/p.
   
   Il y a au total 5+4+3+3+2 = 17 cases occupées sur 100 qui contienent un bateau.
-  Au premier coup, on aura 17 cases réellement occupées par un bateau sur 100 cases possibles, soit la probabilité p de toucher une case contenant un bateau est p = 17/100 puis au second coup, il nous restera 16 cases réellement occupées sur 99 cases possibles, soit p = 16/99 puis 15/98 pour le troisième coup, etc, jusqu'à ce qu'il nous reste 1 case contenant un bateau sur 84 possibles, soit 84/1.
-  Ce qui nous donne une espérance E = 100/17 = 0.17 pour le premier coup, E= 99/16 pour le deuxième, etc.
-  Donc l'espérance de E[X] = somme des espérances soit 100/17 + 99/16+ 98/15 etc
+  Au premier coup, on aura 17 cases réellement occupées par un bateau sur 100 cases possibles, soit la probabilité p de toucher une case contenant un bateau pour X1 est p(X1) = 17/100 puis au second coup, il nous restera 16 cases réellement occupées sur 99 cases possibles, soit p(X2) = 16/99 puis p(X3) = 15/98 pour le troisième coup, etc, jusqu'à ce qu'il nous reste 1 case contenant un bateau sur 84 possibles, soit p(X=17)= 84/1.
+  
+  Ce qui nous donne une espérance E (X1)= 100/17 = 0.17 pour le premier coup, E (X2)= 99/16 pour le deuxième, etc.
+  Donc l'espérance de E[X] = somme des espérances soit 100/17 + 99/16+ 98/15 etc ( environ 294)
+  
 
 
 *Version heuristique*
