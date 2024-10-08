@@ -72,7 +72,8 @@ class Grille:
             x = random.randint(1, 10)
             y = random.randint(1, 10)
             dir = random.randint(1, 2)
-      
+        print(str(x))
+        print(str(y))
         self.place(bateau, (x, y), dir)
 
         return self.grille
@@ -108,9 +109,9 @@ class Grille:
             grille.place_alea(i)
         return grille
 
+    #Fonction pour connaître toutes les cases d'un bateau à partir d'une seule de ses cases
     def connexe(self, bateau, position):
-        """fonction pour connaître toutes les cases d'un bateau 
-        en particulier en connaissant seulement une seule de ses cases"""
+
         x, y = position  #On suppose que les coordonnees sont entre 1 et 10 et non 0 et 9.
         x -= 1
         y -= 1
@@ -135,6 +136,7 @@ def nb_placements_possibles_bateau(id):
             np.size(grille_vide.grille, 1) * 2)
 
 
+#Avec chevauchements
 def nb_placements_possibles_liste_chev(liste_bateaux):
     grille_vide = Grille("Grille vide")
     nb_possibilites = 0
@@ -143,6 +145,7 @@ def nb_placements_possibles_liste_chev(liste_bateaux):
     return nb_possibilites
 
 
+#Sans chevauchements
 def nb_placements_possibles_liste_sans_chev(liste_bateaux):
     grille_vide = Grille("Grille vide")
     if (len(liste_bateaux) == 0):
@@ -160,16 +163,16 @@ def nb_placements_possibles_liste_sans_chev(liste_bateaux):
     return nb_possibilites
 
 
-#Q4, remarque : la fonction tourne trop longtemps
+#Q4, remarque : la fonction tourne trop longtemps avec une grille > 3 bateaux
 def grilles_egales(self):
     cpt = 0
     while (not (self.eq(Grille.genere_grille_2("test")))):
         cpt += 1
-    print("Nombre de grilles generees : ")
+    print("Nombre de grilles generees égales à la grille: " + self.name)
     return cpt
 
 
-#5: Pas sûres du résultat
+#Q5: Pas sûres du résultat
 
 
 def nb_total_grilles(liste_bateaux):
@@ -178,9 +181,11 @@ def nb_total_grilles(liste_bateaux):
 
 
 #Pour la Partie 3 : Version probabiliste simplifiée
-#Fonction qui prends la matrice avec toutes les probabilités pour chaque bateau et chaque cases en argument et renvoie un ensemble contenant les coordonnées triées selon les probabilités de contenir un bateau à la case correspondante
+
+#Fonction coordonnees_triee(mat_total) :  prends la matrice avec toutes les probabilités pour chaque bateau et chaque cases en argument et renvoie un ensemble contenant les coordonnées triées selon les probabilités de contenir un bateau à la case correspondante
 
 
+#Fonction de mise à jour des coordonnées à explorer
 def coordonnees_triee(mat_total):
     # on cree une liste de tuple de toutes les coordonnées avec leurs valeurs et on la trie
     coordonnees = []
